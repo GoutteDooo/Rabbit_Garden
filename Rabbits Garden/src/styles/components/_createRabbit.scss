@@ -1,0 +1,21 @@
+.createRabbit {
+    display: block;
+    margin: 0px auto 20px;
+    height: 50px;
+    width: 170px;
+    border-radius: 7px;
+    border: 2px solid chocolate;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    color: chocolate;
+    cursor: pointer;
+    background: black;
+    &:hover {
+        color: yellowgreen;
+        transition: 0.1s;
+        border: 2px solid yellowgreen;
+    }
+    &:active {
+        filter: brightness(0.8);
+    }
+}
