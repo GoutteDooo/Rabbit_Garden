@@ -39,8 +39,8 @@ class RabbitData {
         ];
   height = this.gender === "male" ? 100 : 50;
   position = {
-    x: Math.floor(Math.random() * 1120),
-    y: Math.floor(Math.random() * 700),
+    x: Math.floor(Math.random() * 1020),
+    y: Math.floor(Math.random() * 600),
   };
 
   grow() {
