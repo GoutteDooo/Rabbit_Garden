@@ -14,7 +14,6 @@ const Rabbit = ({rabbit, allPositions, updatePosition, onCollision}) => {
                 if (distance <= radius + otherRadius) {
                     console.log(`${rabbit.name} entre en collision avec ${name}`);
                     const otherRabbitName = Object.entries(allPositions).find((r) => r[0] === name)[0];
-                    console.log("Objet Lapin collisionné : ", otherRabbitName);
                     if (onCollision) onCollision(rabbit.name, otherRabbitName);
                     return;
                 }
