@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
-import Rabbit from '../classes/Rabbit';
+import React from 'react';
+import Rabbit from '../components/Rabbit.jsx';
 
 const Garden = ({rabbits}) => {
-    useEffect(() => {
-        console.log(rabbits);
-    }, [rabbits]);
-    
     return (
         <div className='garden'>
-            {rabbits && rabbits.map((rabbit, id) => rabbit.render(id))}
+            {rabbits && rabbits.map((rabbit, id) => <Rabbit key={id} rabbit={rabbit} />)}
         </div>
     );
 };

@@ -61,6 +61,7 @@ body {
 }
 
 .garden {
+  position: relative;
   background: darkolivegreen;
   border: 15px solid saddlebrown;
   border-radius: 5px;
@@ -78,6 +79,14 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .createRabbit {
@@ -105,6 +114,7 @@ body {
 }
 
 .rabbit {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,8 +132,12 @@ body {
   height: 70px;
   width: 70px;
   border-radius: 50%;
+  width: 100px;
 }
 .rabbit p {
   font-size: 1rem;
   overflow: hidden;
+}
+.rabbit button {
+  height: 50px;
 }/*# sourceMappingURL=main.css.map */

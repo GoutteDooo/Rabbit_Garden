@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import Garden from './components/Garden.jsx'
-import Rabbit from './classes/Rabbit';
+import RabbitData from './classes/RabbitData';
 
 function App() {
-  const [count, setCount] = useState(0)
   const [rabbits, setRabbits] = useState([]);
 
   const createRabbit = () => {
-      const rabbit = new Rabbit();
+      const rabbit = new RabbitData();
       setRabbits([...rabbits, rabbit]);
-      setCount(count + 1);
   };
 
+  const moveRabbit = (rabbitName) => {
+    setRabbits((prevRabbits) => prevRabbits.map((rabbit) => rabbit.name === rabbitName ? {... rabbit, position: rabbit.walk()} : rabbit));
+  }
+
   useEffect(() => {
-      console.log(rabbits, count);
+      const interval = setInterval(() => {
+          rabbits.forEach((rabbit) => {
+            moveRabbit(rabbit.name);
+          });
+      }, 1000);
+
+      return () => clearInterval(interval);
   }, [rabbits]);
 
   return (

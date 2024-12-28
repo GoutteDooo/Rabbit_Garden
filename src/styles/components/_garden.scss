@@ -1,4 +1,5 @@
 .garden {
+    position: relative;
     background: darkolivegreen;
     border: 15px solid saddlebrown;
     border-radius: 5px;
@@ -9,4 +10,7 @@
     box-sizing: content-box;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
