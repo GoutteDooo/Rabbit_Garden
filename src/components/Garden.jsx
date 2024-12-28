@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Rabbit from '../components/Rabbit.jsx';
 
-const Garden = ({rabbits, positions, updatePosition}) => {
+const Garden = ({rabbits, positions, updatePosition, handleCollision}) => {
     return (
         <div className='garden'>
             {rabbits && rabbits.map((rabbit, id) => (
@@ -10,6 +10,7 @@ const Garden = ({rabbits, positions, updatePosition}) => {
                 rabbit={rabbit} 
                 allPositions={positions}
                 updatePosition={updatePosition}
+                onCollision={handleCollision}
                 />
                 ))}
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Rabbit = ({rabbit, allPositions, updatePosition}) => {
+const Rabbit = ({rabbit, allPositions, updatePosition, onCollision}) => {
     const [position, setPosition] = useState(rabbit.position);
 
     const detectCollision = () => {
@@ -13,10 +13,15 @@ const Rabbit = ({rabbit, allPositions, updatePosition}) => {
                 const otherRadius = 50 / 2; // Exemple pour un rayon fixe
                 if (distance <= radius + otherRadius) {
                     console.log(`${rabbit.name} entre en collision avec ${name}`);
+                    const otherRabbitName = Object.entries(allPositions).find((r) => r[0] === name)[0];
+                    console.log("Objet Lapin collisionné : ", otherRabbitName);
+                    if (onCollision) onCollision(rabbit.name, otherRabbitName);
+                    return;
                 }
             }
         }
     };
+
 
     useEffect(() => {
         const interval = setInterval(() => {
