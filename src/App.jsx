@@ -23,9 +23,8 @@ function App() {
 
   const handleCollision = (rabbitAName, rabbitBName) => {
     const mergedRabbit = mergeRabbits(rabbitAName, rabbitBName);
+    console.log("handleCollision, rabbits name : ", rabbitAName, rabbitBName);
     setRabbits((prevRabbits) => prevRabbits.filter((rabbit) => rabbit.name !== rabbitAName && rabbit.name !== rabbitBName).concat(mergedRabbit));
-    console.log("mergedRabbit : ", mergedRabbit);
-    
     setPositions((prevPositions) => {
       const updatedPositions = {...prevPositions};
       delete updatedPositions[rabbitAName];
@@ -37,22 +36,23 @@ function App() {
   const mergeRabbits = (rabbitAName, rabbitBName) => {
     const rabbitA = rabbits.find((rabbit) => rabbit.name === rabbitAName);
     const rabbitB = rabbits.find((rabbit) => rabbit.name === rabbitBName);
-    console.log("Merging en cours... deux lapins concernés : ", rabbitA.name , " et ", rabbitB.name);
-    const newName = rabbitA.name.split("").filter((_, i) => i % 2).join("") + rabbitB.name.split("").filter((_, i) => (!i % 2)).join("");
-    console.log("newName : ", newName);
-    
+    const rabbitAPos = positions[rabbitAName];
+    const rabbitBPos = positions[rabbitBName];
+
+    console.log("positions des lapins a merger : ", rabbitAPos, rabbitBPos);
+    const newName = rabbitA.name.split("").filter((_, i) => i % 2 !== 0).join("") + rabbitB.name.split("").filter((_, i) => i % 2 === 0).join("");
     const newAge = rabbitA.age + rabbitB.age;
     const newHeight = rabbitA.height + rabbitB.height;
-    const newPosition = {x: (rabbitA.position.x + rabbitB.position.x)/2, y: (rabbitA.position.y + rabbitB.position.y)/2};
+    const newPosition = {x: (rabbitAPos.x + rabbitBPos.x)/2, y: (rabbitAPos.y + rabbitBPos.y)/2};
     return new RabbitData(newName, newAge, rabbitA.color, rabbitA.gender, newHeight, newPosition );
   }
 
-
+/*
   useEffect(() => {
     console.log("Tableau des Lapins : ",rabbits);
     console.log("Positions des Lapins : ",positions);
   }, [rabbits, positions])
-
+*/
 
   return (
     <>

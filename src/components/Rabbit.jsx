@@ -21,7 +21,6 @@ const Rabbit = ({rabbit, allPositions, updatePosition, onCollision}) => {
         }
     };
 
-
     useEffect(() => {
         const interval = setInterval(() => {
             const newX = Math.max(0, Math.min(position.x + Math.floor(Math.random() * 100 - 50), 1020)); // Limite dans le jardin
@@ -47,6 +46,7 @@ const Rabbit = ({rabbit, allPositions, updatePosition, onCollision}) => {
                 width: `${rabbit.height}px`,
                 border: rabbit.gender === 'male' ? '2px solid black' : '',
             }}
+            onClick={() => console.log("change")}
         >
             <p>{rabbit.name}</p>
             <p>{rabbit.age}</p>
