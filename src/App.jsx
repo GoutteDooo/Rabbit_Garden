@@ -8,13 +8,13 @@ function App() {
   const [countId, setCountId] = useState(1);
 
   const createRabbit = () => {
-      const rabbit = new RabbitData();
-      if (rabbits.find((r) => r.name === rabbit.name)) {
-        rabbit.name += countId;
-        setCountId(countId + 1);
-      }
-      setRabbits([...rabbits, rabbit]);
-      setPositions((prev) => ({...prev, [rabbit.name]: rabbit.position}));
+    const rabbit = new RabbitData();
+    if (rabbits.find((r) => r.name === rabbit.name)) {
+      rabbit.name += countId;
+      setCountId(countId + 1);
+    }
+    setRabbits([...rabbits, rabbit]);
+    setPositions((prev) => ({...prev, [rabbit.name]: rabbit.position}));
   };
 
   const updatePosition = (name, newPosition) => {

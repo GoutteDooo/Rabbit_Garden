@@ -7,10 +7,11 @@ class RabbitData {
     height = gender === "male" ? 100 : 50,
     position = RabbitData.randomPosition()
   ) {
-    this.name =
-      name || gender === "male"
-        ? RabbitData.randomMaleName()
-        : RabbitData.randomFemaleName();
+    this.name = name
+      ? name
+      : gender === "male"
+      ? RabbitData.randomMaleName()
+      : RabbitData.randomFemaleName();
     this.age = age;
     this.color = color;
     this.gender = gender;
@@ -78,8 +79,12 @@ class RabbitData {
   }
 
   walk() {
-    const newXPosition = Math.round(Math.random() * 10 - 5);
-    const newYPosition = Math.round(Math.random() * 10 - 5);
+    const newXPosition = Math.round(
+      Math.random() * (this.height / 10) - this.height / 20
+    );
+    const newYPosition = Math.round(
+      Math.random() * (this.height / 10) - this.height / 20
+    );
     this.position.x +=
       this.position.x + newXPosition < 0
         ? 0

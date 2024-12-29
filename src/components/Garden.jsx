@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Rabbit from '../components/Rabbit.jsx';
 
 const Garden = ({rabbits, positions, updatePosition, handleCollision}) => {
